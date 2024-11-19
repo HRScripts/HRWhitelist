@@ -28,7 +28,7 @@ config.botInfo = {
 }
 
 config.whitelistedRoles = {
-    1098055248058273864
+    0000000000000000000
 }
 
 return config --[[@as HRWhitelistConfig]]

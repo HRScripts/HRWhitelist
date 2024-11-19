@@ -1,5 +1,6 @@
 ---@class HRWhitelistConfig
 ---@field logs { enable: boolean, webhook: string, botName: string, title: string, msg: string, colour: integer, identifiersToShow: string[] }
+---@field enableLiveConsoleLog { enableOnConnecting: boolean, enableOnDisconnected: boolean }
 ---@field botInfo { guildId: integer, botToken: string }
 ---@field whitelistedRoles integer[]
 ---@field authorizedBotMsg string
@@ -10,3 +11,5 @@
 ---@field player_not_inServer string
 ---@field discordId_notFound string
 ---@field player_serverId string
+---@field msgOnConnecting string
+---@field msgOnDisconnected string

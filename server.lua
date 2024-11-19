@@ -1,5 +1,5 @@
 local HRLib <const>, Translation <const> = HRLib --[[@as HRLibServerFunctions]], Translation --[[@as HRWhitelistTranslation]]
-local config <const> = HRLib.require(('@%s/config.lua'):format(GetCurrentResourceName()))
+local config <const> = HRLib.require(('@%s/config.lua'):format(GetCurrentResourceName())) --[[@as HRWhitelistConfig]]
 
 -- Functions
 
@@ -78,8 +78,16 @@ HRLib.OnPlConnecting(function(source, _, _, deferrals)
             HRLib.DiscordMsg(config.logs.webhook, config.logs.botName, config.logs.title, config.logs.msg:format(GetPlayerName(source), ('<@%s>'):format(discordId or 'invalid'), identifiers?[1] or 'invalid', identifiers?[2] or 'invalid', identifiers?[3] or 'invalid', identifiers?[4] or 'invalid'), nil, config.logs.colour, '', GetPlayerName(source))
         end
 
+        if config.enableLiveConsoleLog.enableOnConnecting then
+            print(Translation.msgOnConnecting:format(GetPlayerName(source)))
+        end
+
         deferrals.done()
     else
+        if config.enableLiveConsoleLog.enableOnDisconnected then
+            print(Translation.msgOnDisconnected:format(GetPlayerName(source)))
+        end
+
         deferrals.done(reason == 'roleNotFound' and Translation.discord_role_NotFound or reason == 'notInServer' and Translation.player_not_inServer or reason == 'discordIdNotFound' and Translation.discordId_notFound or reason == 'idNotFound' and Translation.player_serverId)
 
         return

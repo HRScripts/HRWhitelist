@@ -5,7 +5,7 @@ lua54 'yes'
 name 'HRWhitelist'
 author 'HRScripts Development'
 description 'A discord whitelist resource'
-version '1.0.0'
+version '1.0.1'
 
 shared_script '@HRLib/import.lua'
 

@@ -27,7 +27,7 @@ end
 ---@return boolean, 'roleNotFound'|'notInServer'|'discordIdNotFound'|'idNotFound'?   
 local isWhitelisted = function(playerId)
     if GetPlayerName(playerId) then
-        local discordId <const>, whitelistedRoles = HRLib.PlayerIdentifier(playerId, 'discord', true), '%s | '
+        local discordId <const>, whitelistedRoles = HRLib.PlayerIdentifier(playerId, 'discord', true), ''
 
         if #config.whitelistedRoles > 1 then
             for _=1, #config.whitelistedRoles do whitelistedRoles = ('%s%s'):format(whitelistedRoles, '%s | ') end

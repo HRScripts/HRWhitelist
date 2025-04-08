@@ -60,6 +60,7 @@ end
 
 -- Main Code
 
+---@param source integer
 HRLib.OnPlConnecting(function(source, _, _, deferrals)
     deferrals.defer()
 

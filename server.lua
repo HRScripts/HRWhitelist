@@ -1,4 +1,4 @@
-local HRLib <const>, Translation <const> = HRLib --[[@as HRLibServerFunctions]], Translation --[[@as HRWhitelistTranslation]]
+local HRLib <const>, Translation <const> = HRLib, Translation --[[@as HRWhitelistTranslation]]
 local config <const> = HRLib.require(('@%s/config.lua'):format(GetCurrentResourceName())) --[[@as HRWhitelistConfig]]
 
 -- Functions

@@ -28,16 +28,15 @@ end
 local isWhitelisted = function(playerId)
     if GetPlayerName(playerId) then
         local discordId <const>, whitelistedRoles = HRLib.PlayerIdentifier(playerId, 'discord', true), ''
-
-        if #config.whitelistedRoles > 1 then
-            for _=1, #config.whitelistedRoles do whitelistedRoles = ('%s%s'):format(whitelistedRoles, '%s | ') end
-        else
-            whitelistedRoles = '%s'
-        end
-
-        whitelistedRoles = whitelistedRoles:format(table.unpack(config.whitelistedRoles))
-
         if discordId then
+            if #config.whitelistedRoles > 1 then
+                for _=1, #config.whitelistedRoles do whitelistedRoles = ('%s%s'):format(whitelistedRoles, '%s | ') end
+            else
+                whitelistedRoles = '%s'
+            end
+
+            whitelistedRoles = whitelistedRoles:format(table.unpack(config.whitelistedRoles))
+
             local member <const> = performRequest(('guilds/%s/members/%s'):format(config.botInfo.guildId, discordId))
             if member.awaitable.value then
                 for i=1, #member.value.roles do
